@@ -24,7 +24,10 @@ const Upload = () => {
     }
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.post('http://localhost:5000/api/projects/upload', formData, {
+      // const res = await axios.post('http://localhost:5000/api/projects/upload', formData, {
+       
+        const res = await axios.post('https://sky-node-react-project-2.onrender.com/api/projects/upload', formData, {
+
         headers: {
           Authorization: `Bearer ${token}`
         }

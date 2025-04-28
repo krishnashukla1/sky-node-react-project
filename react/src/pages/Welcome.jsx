@@ -18,7 +18,10 @@ const Welcome = () => {
     try {
       const url = isSignup ? '/api/auth/signup' : '/api/auth/login';
       const data = isSignup ? { email, password, name } : { email, password };
-      const res = await axios.post(`http://localhost:5000${url}`, data);
+      // const res = await axios.post(`http://localhost:5000${url}`, data);
+      
+      const res = await axios.post(`https://sky-node-react-project-2.onrender.com${url}`, data);
+
       localStorage.setItem('token', res.data.token);
       navigate('/project-creation');
     } catch (error) {

@@ -12,8 +12,11 @@ const AccountSettings = () => {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5000/api/auth/me', {
-          headers: { Authorization: `Bearer ${token}` }
+        // const res = await axios.get('http://localhost:5000/api/auth/me', {
+        
+        const res = await axios.get('https://sky-node-react-project-2.onrender.com/api/auth/me', {
+
+        headers: { Authorization: `Bearer ${token}` }
         });
         setUser({ name: res.data.name, email: res.data.email });
       } catch (error) {
@@ -27,7 +30,9 @@ const AccountSettings = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.put('http://localhost:5000/api/auth/me', user, {
+      // await axios.put('http://localhost:5000/api/auth/me', user, {
+        await axios.put('https://sky-node-react-project-2.onrender.com/api/auth/me', user, {
+
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('Profile updated successfully');

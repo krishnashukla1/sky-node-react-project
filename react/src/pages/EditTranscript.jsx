@@ -11,8 +11,11 @@ const EditTranscript = () => {
     const fetchTranscript = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5000/api/transcripts', {
-          headers: { Authorization: `Bearer ${token}` }
+        // const res = await axios.get('http://localhost:5000/api/transcripts', {
+         
+        const res = await axios.get('https://sky-node-react-project-2.onrender.com/api/transcripts', {
+
+        headers: { Authorization: `Bearer ${token}` }
         });
         setTranscript(res.data.content);
       } catch (error) {
@@ -25,7 +28,10 @@ const EditTranscript = () => {
   const handleSave = async () => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put('http://localhost:5000/api/transcripts', { content: transcript }, {
+      // await axios.put('http://localhost:5000/api/transcripts', { content: transcript }, {
+       
+        await axios.put('https://sky-node-react-project-2.onrender.com/api/transcripts', { content: transcript }, {
+
         headers: { Authorization: `Bearer ${token}` }
       });
       navigate('/account-settings');

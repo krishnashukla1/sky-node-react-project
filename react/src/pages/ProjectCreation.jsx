@@ -22,7 +22,11 @@ const ProjectCreation = () => {
     const fetchProjects = async () => {
       console.log('Token:', token);
       try {
-        const res = await axios.get('http://localhost:5000/api/projects', {
+        // const res = await axios.get('http://localhost:5000/api/projects', {
+
+
+        const res = await axios.get('https://sky-node-react-project-2.onrender.com/api/projects',{
+
           headers: { Authorization: `Bearer ${token}` }
         });
         setProjects(res.data);
@@ -43,8 +47,11 @@ const ProjectCreation = () => {
     }
     console.log('Token:', token);
     try {
-      const res = await axios.post('http://localhost:5000/api/projects', { name, description }, {
-        headers: { Authorization: `Bearer ${token}` }
+      // const res = await axios.post('http://localhost:5000/api/projects', { name, description }, {
+        
+      const res = await axios.post('https://sky-node-react-project-2.onrender.com/api/projects', { name, description }, {
+// 
+      headers: { Authorization: `Bearer ${token}` }
       });
       setName('');
       setDescription('');
@@ -64,8 +71,11 @@ const ProjectCreation = () => {
     }
     if (window.confirm('Are you sure you want to delete this project?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/projects/${projectId}`, {
-          headers: { Authorization: `Bearer ${token}` }
+        // await axios.delete(`http://localhost:5000/api/projects/${projectId}`, {
+          
+        await axios.delete(`https://sky-node-react-project-2.onrender.com/api/projects/${projectId}`, {
+
+        headers: { Authorization: `Bearer ${token}` }
         });
         setProjects(projects.filter(project => project._id !== projectId));
         setError('');
